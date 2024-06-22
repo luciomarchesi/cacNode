@@ -4,7 +4,7 @@ let port = 3000;
 const express = require("express");
 //inicializo express
 const app = express();
-const usuariosRouter = require("./routes/usuarios");
+const usuariosRouter = require("./src/routes/usuarios");
 const path = require("path");
 
 app.use(express.json());
