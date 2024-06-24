@@ -47,8 +47,17 @@ connection.connect((err) => {
                   genero ENUM('Masculino', 'Femenino', 'Otro') NOT NULL,
                   correo VARCHAR(100) NOT NULL,
                   texto_mensaje TEXT NOT NULL
-);
-           
+                );
+            `;
+      const createTablePosteosQuery = `
+              CREATE TABLE IF NOT EXISTS posteos (
+             id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+               id_usuario INT NOT NULL,
+             titulo VARCHAR(255) NOT NULL,
+              contenido TEXT NOT NULL,
+             foto VARCHAR(255),
+             FOREIGN KEY (id_usuario) REFERENCES usuarios(id)
+              );
             `;
 
       connection.query(createTableQuery, (err, results) => {
@@ -64,6 +73,13 @@ connection.connect((err) => {
           return;
         }
         console.log("Tabla contacto creada");
+      });
+      connection.query(createTablePosteosQuery, (err, results) => {
+        if (err) {
+          console.log("Error creando la tabla contacto: ", err);
+          return;
+        }
+        console.log("Tabla Posteos creada");
       });
     });
   });

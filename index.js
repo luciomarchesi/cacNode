@@ -6,12 +6,14 @@ const express = require("express");
 const app = express();
 const usuariosRouter = require("./src/routes/usuariosRoutes");
 const contactoRouter = require("./src/routes/contactoRoutes");
+const posteoRouter = require("./src/routes/posteoRouter");
 const path = require("path");
 
 app.use(express.json());
 
 app.use("/usuarios", usuariosRouter);
 app.use("/contacto", contactoRouter);
+app.use("/posteos", posteoRouter);
 
 /*
 app.get('/', (req,res) => 
