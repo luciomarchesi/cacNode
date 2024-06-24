@@ -20,11 +20,11 @@ const ObtenerUsuarioPorId = (req, res) => {
 };
 
 const crearUsuario = (req, res) => {
-  const { nombre, apellido, mail } = req.body;
+  const { correo, pass, avatar } = req.body;
 
-  const sql = "INSERT INTO usuarios (nombre,apellido,mail) VALUES (?,?,?)";
+  const sql = "INSERT INTO usuarios (correo,pass,avatar) VALUES (?,?,?)";
 
-  db.query(sql, [nombre, apellido, mail], (err, result) => {
+  db.query(sql, [correo, pass, avatar], (err, result) => {
     if (err) throw err;
 
     res.json({
@@ -38,8 +38,7 @@ const ActualizarUsuario = (req, res) => {
   const { id } = req.params;
   const { nombre, apellido, mail } = req.body;
 
-  const sql =
-    "UPDATE usuarios SET nombre = ?, apellido = ?, mail = ? WHERE id = ?";
+  const sql = "UPDATE usuarios SET nombre = ?, apellido = ?, mail = ? WHERE id = ?";
   db.query(sql, [nombre, apellido, mail, id], (err, result) => {
     if (err) throw err;
 

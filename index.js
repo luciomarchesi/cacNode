@@ -21,5 +21,5 @@ app.get('/', (req,res) =>
 app.use(express.static(path.join(__dirname, "public")));
 
 app.listen(port, () => {
-  console.log(`Servidor ejecutandose en el puert ${port}`);
+  console.log(`Servidor ejecutandose en el http://localhost:${port}`);
 });
