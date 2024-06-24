@@ -39,12 +39,31 @@ connection.connect((err) => {
                 );            
             `;
 
+      const createTableContactoQuery = `
+              CREATE TABLE IF NOT EXISTS contacto (
+                id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+                  nombre VARCHAR(100) NOT NULL,
+                  numero_telefono VARCHAR(20) NOT NULL,
+                  genero ENUM('Masculino', 'Femenino', 'Otro') NOT NULL,
+                  correo VARCHAR(100) NOT NULL,
+                  texto_mensaje TEXT NOT NULL
+);
+           
+            `;
+
       connection.query(createTableQuery, (err, results) => {
         if (err) {
           console.log("Error creando la tabla: ", err);
           return;
         }
         console.log("Tabla CREADA");
+      });
+      connection.query(createTableContactoQuery, (err, results) => {
+        if (err) {
+          console.log("Error creando la tabla contacto: ", err);
+          return;
+        }
+        console.log("Tabla contacto creada");
       });
     });
   });
