@@ -13,7 +13,6 @@ connection.connect((err) => {
     console.error("Error conectando a la base de datos", err);
     return;
   }
-
   console.log("Conectado a la base de datos");
 
   connection.query("CREATE DATABASE IF NOT EXISTS usuarios_db", (err, results) => {
@@ -21,7 +20,6 @@ connection.connect((err) => {
       console.log("Error creando la base de datos");
       return;
     }
-
     console.log("Base de datos asegurada");
 
     connection.changeUser({ database: "usuarios_db" }, (err) => {
@@ -59,13 +57,30 @@ connection.connect((err) => {
              FOREIGN KEY (id_usuario) REFERENCES usuarios(id)
               );
             `;
+      const createTableProductosQuery = `
+            CREATE TABLE IF NOT EXISTS productos (
+             id INT PRIMARY KEY AUTO_INCREMENT,
+             nombre VARCHAR(255) NOT NULL,
+             descripcion TEXT,
+             foto VARCHAR(255)
+              );
+            `;
+      const createTableUsuarios_ProductosQuery = `
+            CREATE TABLE IF NOT EXISTS usuarios_productos (
+            id_usuario INT,
+            id_producto INT,
+            PRIMARY KEY (id_usuario, id_producto),
+            FOREIGN KEY (id_usuario) REFERENCES usuarios(id),
+            FOREIGN KEY (id_producto) REFERENCES productos(id)
+              );
+            `;
 
       connection.query(createTableQuery, (err, results) => {
         if (err) {
           console.log("Error creando la tabla: ", err);
           return;
         }
-        console.log("Tabla CREADA");
+        console.log("Tabla Usuarios Creada");
       });
       connection.query(createTableContactoQuery, (err, results) => {
         if (err) {
@@ -80,6 +95,20 @@ connection.connect((err) => {
           return;
         }
         console.log("Tabla Posteos creada");
+      });
+      connection.query(createTableProductosQuery, (err, results) => {
+        if (err) {
+          console.log("Error creando la tabla contacto: ", err);
+          return;
+        }
+        console.log("Tabla Productos creada");
+      });
+      connection.query(createTableUsuarios_ProductosQuery, (err, results) => {
+        if (err) {
+          console.log("Error creando la tabla contacto: ", err);
+          return;
+        }
+        console.log("Tabla Usuarios_Productos creada");
       });
     });
   });
