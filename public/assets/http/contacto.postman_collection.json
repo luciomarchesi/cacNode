@@ -1,0 +1,41 @@
+{
+	"info": {
+		"_postman_id": "efbc2561-3ff1-4dc6-8d7d-ea7311761a49",
+		"name": "contacto",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26271420"
+	},
+	"item": [
+		{
+			"name": "http://127.0.0.1:3000/contacto",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\":\"jorge\",\r\n    \"numero_telefono\":\"123456\",\r\n    \"genero\": \"Masculino\",\r\n    \"correo\":\"jorge@prueba.com\",\r\n    \"texto_mensaje\": \"Aca iria todo el mensaje\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/contacto",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"contacto"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,41 @@
+{
+	"info": {
+		"_postman_id": "181a1466-6344-4988-8a83-045e81a4c6dc",
+		"name": "posteos",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26271420"
+	},
+	"item": [
+		{
+			"name": "http://127.0.0.1:3000/posteos",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id_usuario\":\"1\",\r\n    \"titulo\": \"prueba\", \r\n    \"contenido\": \"mucha info\",\r\n    \"foto\": \"prueba\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/posteos",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"posteos"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
