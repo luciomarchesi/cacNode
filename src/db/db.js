@@ -67,12 +67,22 @@ connection.connect((err) => {
             `;
       const createTableUsuarios_ProductosQuery = `
             CREATE TABLE IF NOT EXISTS usuarios_productos (
-            id_usuario INT,
-            id_producto INT,
-            PRIMARY KEY (id_usuario, id_producto),
-            FOREIGN KEY (id_usuario) REFERENCES usuarios(id),
-            FOREIGN KEY (id_producto) REFERENCES productos(id)
-              );
+             id INT PRIMARY KEY AUTO_INCREMENT,
+             id_usuario INT,
+             FOREIGN KEY (id_usuario) REFERENCES usuarios(id),
+             fecha_compra DATE, 
+             total DECIMAL(10, 2),  
+    
+             id_producto_1 INT,
+              id_producto_2 INT,
+             id_producto_3 INT,
+             id_producto_4 INT,
+        
+             FOREIGN KEY (id_producto_1) REFERENCES productos(id),
+             FOREIGN KEY (id_producto_2) REFERENCES productos(id),
+             FOREIGN KEY (id_producto_3) REFERENCES productos(id),
+             FOREIGN KEY (id_producto_4) REFERENCES productos(id)
+);
             `;
 
       connection.query(createTableQuery, (err, results) => {

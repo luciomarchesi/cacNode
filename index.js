@@ -8,6 +8,7 @@ const usuariosRouter = require("./src/routes/usuariosRoutes");
 const contactoRouter = require("./src/routes/contactoRoutes");
 const posteoRouter = require("./src/routes/posteoRouter");
 const productosRouter = require("./src/routes/productosRouter");
+const comprasRouter = require("./src/routes/comprasRouter");
 const path = require("path");
 
 app.use(express.json());
@@ -16,7 +17,7 @@ app.use("/usuarios", usuariosRouter);
 app.use("/contacto", contactoRouter);
 app.use("/posteos", posteoRouter);
 app.use("/productos", productosRouter);
-//app.use("/compras", posteoRouter);
+app.use("/compras", comprasRouter);
 
 /*
 app.get('/', (req,res) => 
