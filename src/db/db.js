@@ -33,7 +33,7 @@ connection.connect((err) => {
                   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
                     correo VARCHAR(100) NOT NULL,
                     pass VARCHAR(100) NOT NULL,
-                    avatar VARCHAR(255) NOT NULL
+                    avatar VARCHAR(255) 
                 );            
             `;
 

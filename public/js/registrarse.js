@@ -32,23 +32,13 @@ form.addEventListener("submit", (e) => {
   } else {
     console.log(user.value.trim());
     console.log(pass.value);
-    form.reset();
+    //form.reset();
     alert("credenciales correctas");
-    window.location.href = "login.html";
+    //window.location.href = "login.html";
   }
 });
 
 if (localStorage.getItem("user")) {
-  // registo.innerHTML = user.email_user;
-  // registo.href = "user.html";
-  /*nuevoEnlace.textContent = user.email_user;
-  nuevoElemento.appendChild(nuevoEnlace);
-  nuevoElemento.classList.add("--bs-primary-text-emphasis");
-  nuevoElemento.classList.add("nav-item");
-  nuevoElemento.classList.add("nav-link");
-  nuevoElemento.classList.add("mx-2");
-  lista.appendChild(nuevoElemento);*/
-
   userLoged.classList.remove("invisible");
   userLoged.classList.add("visible");
   var userName1 = document.createElement("p");
