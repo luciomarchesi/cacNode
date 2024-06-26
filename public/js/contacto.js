@@ -18,6 +18,7 @@ form.addEventListener("submit", async (e) => {
 
   if (user.length < 6) {
     alert("El nombre debe poseer al menos 6 caracteres");
+    return;
   }
   if (numero.length < 8) {
     alert("El número debe poseer al menos 8 caracteres");
@@ -25,6 +26,7 @@ form.addEventListener("submit", async (e) => {
   }
   if (opcion == 0) {
     alert("Ingrese una opción válida en el menú Género");
+    return;
   }
   //alert(user, numero, select, email, message);
   //console.log(user, numero, select, email, message);
@@ -51,8 +53,8 @@ form.addEventListener("submit", async (e) => {
     if (!response.ok) {
       throw new Error("Error al enviar los datos");
     }
-
-    // Aquí puedes manejar la respuesta del servidor si es necesario
+    form.reset();
+    alert("Datos enviados correctamente");
     const data = await response.json();
     console.log("Respuesta del servidor:", data);
   } catch (error) {
