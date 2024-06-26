@@ -10,6 +10,8 @@ const posteoRouter = require("./src/routes/posteoRouter");
 const productosRouter = require("./src/routes/productosRouter");
 const comprasRouter = require("./src/routes/comprasRouter");
 const path = require("path");
+const cors = require("cors");
+app.use(cors());
 
 app.use(express.json());
 
