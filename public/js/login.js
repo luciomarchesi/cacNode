@@ -23,7 +23,7 @@ document.getElementById("loginForm").addEventListener("submit", function (event)
     return; // Detiene la ejecución del código si la validación falla
   }
 
-  var userData = {
+  const userData = {
     correo: user,
     pass: pass,
   };
