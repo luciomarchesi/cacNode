@@ -4,12 +4,22 @@ let port = 3000;
 const express = require("express");
 //inicializo express
 const app = express();
-const usuariosRouter = require("./src/routes/usuarios");
+const usuariosRouter = require("./src/routes/usuariosRoutes");
+const contactoRouter = require("./src/routes/contactoRoutes");
+const posteoRouter = require("./src/routes/posteoRouter");
+const productosRouter = require("./src/routes/productosRouter");
+const comprasRouter = require("./src/routes/comprasRouter");
 const path = require("path");
+const cors = require("cors");
+app.use(cors());
 
 app.use(express.json());
 
 app.use("/usuarios", usuariosRouter);
+app.use("/contacto", contactoRouter);
+app.use("/posteos", posteoRouter);
+app.use("/productos", productosRouter);
+app.use("/compras", comprasRouter);
 
 /*
 app.get('/', (req,res) => 
@@ -21,5 +31,5 @@ app.get('/', (req,res) =>
 app.use(express.static(path.join(__dirname, "public")));
 
 app.listen(port, () => {
-  console.log(`Servidor ejecutandose en el puert ${port}`);
+  console.log(`Servidor ejecutandose en el http://localhost:${port}`);
 });

@@ -1,0 +1,41 @@
+{
+	"info": {
+		"_postman_id": "49f3c51d-7d35-4237-a4e8-ec9bd8eb250b",
+		"name": "productos",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26271420"
+	},
+	"item": [
+		{
+			"name": "http://127.0.0.1:3000/productos",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\":\"producto 2\",\r\n    \"descripcion\":\"producto 2\",\r\n    \"foto\": \"12p3456\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/productos",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"productos"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

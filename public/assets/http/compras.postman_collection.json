@@ -1,0 +1,41 @@
+{
+	"info": {
+		"_postman_id": "03c09ebd-08c7-4e9d-af30-7ee6e962259b",
+		"name": "compras",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26271420"
+	},
+	"item": [
+		{
+			"name": "http://127.0.0.1:3000/compras",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id_usuario\":\"1\",\r\n    \"id_producto_1\":\"1\",\r\n    \"id_producto_2\":\"2\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/compras",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"compras"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

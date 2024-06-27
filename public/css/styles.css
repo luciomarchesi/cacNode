@@ -1,0 +1,98 @@
+/*---------------------------------HEAD---------------------------------------------------*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/*--------------------------------- MAIN---------------------------------------------------*/
+body {
+  font-family: "Roboto", sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.hero {
+  width: 100%;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), #9e3c18), url(../assets/img/imgBg.jpg);
+  background-position: center;
+  background-size: cover;
+  padding: 30px;
+}
+
+@keyframes slidein {
+  from {
+    margin-left: 100%;
+    width: 100%;
+  }
+
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
+}
+
+h1,
+.fs-5 {
+  animation-duration: 3s;
+  animation-name: slidein;
+}
+
+.inicio {
+  text-align: center;
+  color: rgb(255, 255, 255);
+  font-size: large;
+  font-weight: 300;
+}
+
+.section-style {
+  background-color: #9e3c18;
+  padding: 30px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 16px;
+  margin: 40px 0;
+  align-content: center;
+}
+
+.grid-item {
+  grid-column: span 12;
+  align-content: center;
+  text-align: center;
+}
+
+@media (min-width: 1000px) {
+  .grid-item {
+    grid-column: span 4;
+  }
+}
+
+.img-style {
+  border-radius: 3px;
+  width: 100%;
+  max-width: 500px;
+  max-height: 400px;
+}
+
+.max-size {
+  max-width: 500px;
+  max-height: 400px;
+}
+
+.section-title {
+  color: rgb(255, 255, 255);
+}
+
+.carousel-inner img {
+  margin: auto;
+}
+
+.card-limited {
+  max-width: 600px;
+  margin: auto;
+}
+/*--------------------------------- END MAIN ---------------------------------------------------*/
