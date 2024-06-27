@@ -1,7 +1,8 @@
 const db = require("../db/db"); // Importa la conexión a la base de datos
+const { comparePasswords } = require("../utils/hashPassword");
 
 const ObtenerTodosLosUsuarios = (req, res) => {
-  const { correo } = req.body; // Obtiene el correo del cuerpo de la solicitud
+  const { correo, pass } = req.body; // Obtiene el correo del cuerpo de la solicitud
 
   const sql = "SELECT * FROM usuarios WHERE correo = ?";
 
@@ -20,6 +21,15 @@ const ObtenerTodosLosUsuarios = (req, res) => {
 
     const user = results;
 
+    const isMatch = comparePasswords(pass, user.pass);
+
+    if (!isMatch) {
+      // Si las contraseñas no coinciden
+      return response.status(401).json({ error: "Contraseña incorrecta" });
+    }
+    // Si las credenciales son válidas, devolver el usuario (excluyendo la contraseña)
+    const userWithoutPassword = { ...user };
+    delete userWithoutPassword.pass;
     res.json({ message: "Usuario logueado", user });
   });
 };
