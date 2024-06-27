@@ -20,7 +20,7 @@ const passwordRegex = /^(?=.*[A-Z])(?=.*[0-9])(?=.*[\W_]).{8,}$/;
 
 user.focus();
 
-form.addEventListener("submit", (e) => {
+form.addEventListener("submit", async (e) => {
   e.preventDefault();
   if (!emailRegex.test(user.value)) {
     alert("Por favor, introduce un correo electrónico válido");
@@ -32,9 +32,25 @@ form.addEventListener("submit", (e) => {
   } else {
     console.log(user.value.trim());
     console.log(pass.value);
-    //form.reset();
+    const datos = {
+      correo: user.value.trim(),
+      pass: pass.value,
+    };
+    const response = await fetch("http://127.0.0.1:3000/usuarios", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(datos),
+    });
+
+    if (!response.ok) {
+      throw new Error("Error al enviar los datos");
+    }
+
+    form.reset();
     alert("credenciales correctas");
-    //window.location.href = "login.html";
+    window.location.href = "login.html";
   }
 });
 
