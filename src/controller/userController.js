@@ -22,16 +22,29 @@ const ObtenerUsuarioPorId = (req, res) => {
 const crearUsuario = (req, res) => {
   const { correo, pass, avatar } = req.body;
 
-  const sql = "INSERT INTO usuarios (correo,pass,avatar) VALUES (?,?,?)";
+  const checkIfExistsQuery = "SELECT COUNT(*) AS count FROM usuarios WHERE correo = ?";
+  db.query(checkIfExistsQuery, [correo], (err, results) => {
+    if (err) {
+      return res.status(500).json({ error: "Error interno del servidor" });
+    }
 
-  db.query(sql, [correo, pass, avatar], (err, result) => {
-    if (err) throw err;
+    const count = results[0].count;
+    if (count > 0) {
+      // Si count es mayor que 0, significa que ya existe un usuario con ese correo
+      return res.status(400).json({ error: "Ya existe un usuario con este correo" });
+    } else {
+      db.query(sql, [correo, pass, avatar], (err, result) => {
+        if (err) throw err;
 
-    res.json({
-      mensaje: "Usuario Creado",
-      idUsuario: result.insertId,
-    });
+        res.json({
+          mensaje: "Usuario Creado",
+          idUsuario: result.insertId,
+        });
+      });
+    }
   });
+
+  const sql = "INSERT INTO usuarios (correo,pass,avatar) VALUES (?,?,?)";
 };
 
 const ActualizarUsuario = (req, res) => {
