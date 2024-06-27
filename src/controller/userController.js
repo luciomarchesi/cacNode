@@ -1,4 +1,5 @@
 const db = require("../db/db");
+const { hashPassword } = require("../utils/hashPassword");
 
 const ObtenerTodosLosUsuarios = (req, res) => {
   const sql = "SELECT * FROM usuarios";
@@ -19,32 +20,33 @@ const ObtenerUsuarioPorId = (req, res) => {
   });
 };
 
-const crearUsuario = (req, res) => {
+const crearUsuario = async (req, res) => {
   const { correo, pass, avatar } = req.body;
-
   const checkIfExistsQuery = "SELECT COUNT(*) AS count FROM usuarios WHERE correo = ?";
-  db.query(checkIfExistsQuery, [correo], (err, results) => {
-    if (err) {
-      return res.status(500).json({ error: "Error interno del servidor" });
-    }
 
-    const count = results[0].count;
+  try {
+    // Verificar si ya existe un usuario con el mismo correo
+    const [rows] = await db.promise().query(checkIfExistsQuery, [correo]);
+    const count = rows[0].count;
+
     if (count > 0) {
-      // Si count es mayor que 0, significa que ya existe un usuario con ese correo
       return res.status(400).json({ error: "Ya existe un usuario con este correo" });
     } else {
-      db.query(sql, [correo, pass, avatar], (err, result) => {
-        if (err) throw err;
+      // Si no existe, procedemos a insertar el nuevo usuario
+      const sql = "INSERT INTO usuarios (correo, pass, avatar) VALUES (?, ?, ?)";
+      const hashedPassword = await hashPassword(pass); // Suponiendo que tienes una función para hashear la contraseña
 
-        res.json({
-          mensaje: "Usuario Creado",
-          idUsuario: result.insertId,
-        });
+      const [result] = await db.promise().query(sql, [correo, hashedPassword, avatar]);
+
+      res.json({
+        mensaje: "Usuario Creado",
+        idUsuario: result.insertId,
       });
     }
-  });
-
-  const sql = "INSERT INTO usuarios (correo,pass,avatar) VALUES (?,?,?)";
+  } catch (error) {
+    console.error("Error al ejecutar la consulta:", error);
+    return res.status(500).json({ error: "Error interno del servidor" });
+  }
 };
 
 const ActualizarUsuario = (req, res) => {
