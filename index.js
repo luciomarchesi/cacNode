@@ -5,6 +5,7 @@ const express = require("express");
 //inicializo express
 const app = express();
 const usuariosRouter = require("./src/routes/usuariosRoutes");
+const loginRouter = require("./src/routes/loginRouter");
 const contactoRouter = require("./src/routes/contactoRoutes");
 const posteoRouter = require("./src/routes/posteoRouter");
 const productosRouter = require("./src/routes/productosRouter");
@@ -16,6 +17,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use("/usuarios", usuariosRouter);
+app.use("/login", loginRouter);
 app.use("/contacto", contactoRouter);
 app.use("/posteos", posteoRouter);
 app.use("/productos", productosRouter);

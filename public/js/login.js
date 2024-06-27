@@ -23,7 +23,7 @@ document.getElementById("loginForm").addEventListener("submit", function (event)
     return; // Detiene la ejecución del código si la validación falla
   }
 
-  var userData = {
+  const userData = {
     correo: user,
     pass: pass,
   };
@@ -44,6 +44,7 @@ document.getElementById("loginForm").addEventListener("submit", function (event)
     .then((data) => {
       // Manejar la respuesta del servidor
       console.log("Usuario autenticado:", data);
+      alert("Usuario autenticado!!");
       localStorage.setItem("user", JSON.stringify(data)); // Guardar el usuario en el almacenamiento local
       window.location.href = "../index.html"; // Redirigir al usuario a la página principal
     })
