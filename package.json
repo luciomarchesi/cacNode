@@ -1,14 +1,14 @@
 {
   "name": "cacnode",
   "version": "1.0.0",
-  "description": "",
+  "description": "Proyecto final del curso CODO A CODO - NodeJs",
   "main": "index.js",
   "scripts": {
     "start": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "https://github.com/luciomarchesi, https://github.com/jlg777",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.1.1",
