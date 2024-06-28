@@ -15,10 +15,15 @@
     "url": "https://github.com/luciomarchesi/cacNode.git"
   },
   "bugs": {
-  "url": "https://github.com/tu-usuario/tu-repositorio/issues",
-  "email": "tu@email.com"
-}
-,
+    "url": "https://github.com/luciomarchesi/cacNode/issues",
+    "email": "tu@email.com"
+  },
+  "contributors": [
+    {
+      "name": "Jorge Grandia",
+      "email": "proyectojlg777@gmail.com"
+    }
+  ],
   "dependencies": {
     "bcrypt": "^5.1.1",
     "cors": "^2.8.5",
