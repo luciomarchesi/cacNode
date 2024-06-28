@@ -10,6 +10,10 @@
   "keywords": [],
   "author": "https://github.com/luciomarchesi, https://github.com/jlg777",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/luciomarchesi/cacNode.git"
+  },
   "dependencies": {
     "bcrypt": "^5.1.1",
     "cors": "^2.8.5",
