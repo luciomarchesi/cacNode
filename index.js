@@ -12,6 +12,8 @@ const productosRouter = require("./src/routes/productosRouter");
 const comprasRouter = require("./src/routes/comprasRouter");
 const path = require("path");
 const cors = require("cors");
+const upload = require("./src/utils/multerConfig");
+
 app.use(cors());
 
 app.use(express.json());
@@ -22,6 +24,12 @@ app.use("/contacto", contactoRouter);
 app.use("/posteos", posteoRouter);
 app.use("/productos", productosRouter);
 app.use("/compras", comprasRouter);
+
+app.post("/upload", upload.single("archivo"), (req, res) => {
+  // req.file contiene la información del archivo cargado
+  console.log(req.file);
+  res.send("Archivo subido correctamente");
+});
 
 /*
 app.get('/', (req,res) => 

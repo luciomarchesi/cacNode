@@ -62,7 +62,8 @@ connection.connect((err) => {
              id INT PRIMARY KEY AUTO_INCREMENT,
              nombre VARCHAR(255) NOT NULL,
              descripcion TEXT,
-             foto VARCHAR(255)
+             foto VARCHAR(255),
+             precio INT
               );
             `;
       const createTableUsuarios_ProductosQuery = `
