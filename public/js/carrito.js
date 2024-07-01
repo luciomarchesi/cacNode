@@ -52,7 +52,7 @@ let products = [
   },
 ];
 let listCards = [];
-function initApp() {
+/*function initApp() {
   products.forEach((value, key) => {
     let newDiv = document.createElement("div");
     newDiv.classList.add("item");
@@ -64,7 +64,38 @@ function initApp() {
     list.appendChild(newDiv);
   });
 }
+initApp();*/
+
+fetch("http://127.0.0.1:3000/productos", {
+  method: "GET",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify(userData),
+})
+  .then((response) => {
+    if (!response.ok) {
+      throw new Error("Usuario o contraseña incorrectos");
+    }
+    return response.json();
+  })
+  .then((data) => {
+    data.forEach((value, key) => {
+      let newDiv = document.createElement("div");
+      newDiv.classList.add("item");
+      newDiv.innerHTML = `
+            <img src="../assets/img/${value.image}">
+            <div class="title">${value.name}</div>
+            <div class="price">${value.price.toLocaleString()}</div>
+            <button onclick="addToCard(${key})">Agregar al Carrito</button>`;
+      list.appendChild(newDiv);
+    });
+  })
+  .catch((error) => {
+    alert(error.message);
+  });
 initApp();
+
 function addToCard(key) {
   if (listCards[key] == null) {
     // copy product form list to list card
@@ -87,13 +118,9 @@ function reloadCard() {
                 <div>${value.name}</div>
                 <div>${value.price.toLocaleString()}</div>
                 <div>
-                    <button onclick="changeQuantity(${key}, ${
-        value.quantity - 1
-      })">-</button>
+                    <button onclick="changeQuantity(${key}, ${value.quantity - 1})">-</button>
                     <div class="count">${value.quantity}</div>
-                    <button onclick="changeQuantity(${key}, ${
-        value.quantity + 1
-      })">+</button>
+                    <button onclick="changeQuantity(${key}, ${value.quantity + 1})">+</button>
                 </div>`;
       listCard.appendChild(newDiv);
     }
