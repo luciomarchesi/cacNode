@@ -6,6 +6,9 @@ let body = document.querySelector("body");
 let total = document.querySelector(".total");
 let quantity = document.querySelector(".quantity");
 let buyButton = document.querySelector(".buyButton"); // Selección del botón "Comprar"
+const userlogueado = JSON.parse(localStorage.getItem("user"));
+const userLoged = document.getElementById("dropdown");
+const userName = document.getElementById("userName");
 
 openShopping.addEventListener("click", () => {
   body.classList.add("active");
@@ -110,11 +113,10 @@ function changeQuantity(index, quantity) {
 
   reloadCard();
 }
-
 /// Evento click del botón "Comprar"
 buyButton.addEventListener("click", () => {
   // Construir los datos a enviar al servidor
-  let userId = "1"; // Suponiendo que el id de usuario es estático
+  let userId = userlogueado.userWithoutPassword.id; // Suponiendo que el id de usuario es estático
   let productIds = listCards.map((item) => item.id); // Obtener los id de los productos en el carrito
 
   // Construir el objeto de datos para enviar al servidor
@@ -157,3 +159,11 @@ buyButton.addEventListener("click", () => {
       alert("Error al procesar la compra. Por favor, inténtalo de nuevo más tarde.");
     });
 });
+
+if (localStorage.getItem("user")) {
+  userLoged.classList.remove("invisible");
+  userLoged.classList.add("visible");
+  var userName1 = document.createElement("p");
+  userName1.textContent = userlogueado.email_user;
+  userName.appendChild(userName1);
+}
