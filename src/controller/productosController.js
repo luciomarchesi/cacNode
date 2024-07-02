@@ -23,4 +23,14 @@ const crearProducto = (req, res) => {
   });
 };
 
-module.exports = { crearProducto };
+const ObtenerTodosLosProductos = (req, res) => {
+  const sql = "SELECT * FROM productos";
+
+  db.query(sql, (err, result) => {
+    if (err) throw err;
+
+    res.json(result);
+  });
+};
+
+module.exports = { crearProducto, ObtenerTodosLosProductos };
