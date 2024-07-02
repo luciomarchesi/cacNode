@@ -5,6 +5,7 @@ let listCard = document.querySelector(".listCard");
 let body = document.querySelector("body");
 let total = document.querySelector(".total");
 let quantity = document.querySelector(".quantity");
+let buyButton = document.querySelector(".buyButton"); // Selección del botón "Comprar"
 
 openShopping.addEventListener("click", () => {
   body.classList.add("active");
@@ -13,100 +14,146 @@ closeShopping.addEventListener("click", () => {
   body.classList.remove("active");
 });
 
-let products = [
-  {
-    id: 1,
-    name: "Tazón de Pollo y Verduras Frescas",
-    image: "1.PNG",
-    price: 20000,
-  },
-  {
-    id: 2,
-    name: "Pollo a la Parrilla con Salsa BBQ",
-    image: "2.PNG",
-    price: 24000,
-  },
-  {
-    id: 3,
-    name: "Ensalada de Salmón Ahumado",
-    image: "3.PNG",
-    price: 25000,
-  },
-  {
-    id: 4,
-    name: "Crema de Calabaza",
-    image: "4.PNG",
-    price: 23000,
-  },
-  {
-    id: 5,
-    name: "Ensalada Verde Primavera",
-    image: "5.PNG",
-    price: 16000,
-  },
-  {
-    id: 6,
-    name: "Pizza Margarita Clásica",
-    image: "6.PNG",
-    price: 12000,
-  },
-];
+let products = [];
 let listCards = [];
-function initApp() {
-  products.forEach((value, key) => {
-    let newDiv = document.createElement("div");
-    newDiv.classList.add("item");
-    newDiv.innerHTML = `
-            <img src="../assets/img/${value.image}">
-            <div class="title">${value.name}</div>
-            <div class="price">${value.price.toLocaleString()}</div>
-            <button onclick="addToCard(${key})">Agregar al Carrito</button>`;
-    list.appendChild(newDiv);
-  });
-}
-initApp();
-function addToCard(key) {
-  if (listCards[key] == null) {
-    // copy product form list to list card
-    listCards[key] = JSON.parse(JSON.stringify(products[key]));
-    listCards[key].quantity = 1;
+
+document.addEventListener("DOMContentLoaded", function () {
+  fetch("http://127.0.0.1:3000/productos")
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Error al obtener los productos");
+      }
+      return response.json();
+    })
+    .then((data) => {
+      products = data;
+      products.forEach((value, key) => {
+        let newDiv = document.createElement("div");
+        newDiv.classList.add("item");
+        newDiv.innerHTML = `
+          <img src="${value.foto}">
+          <div class="title">${value.nombre}</div>
+          <div class="price">${value.precio}</div>
+          <button onclick="addToCard(${key})">Agregar al Carrito</button>`;
+        list.appendChild(newDiv);
+      });
+    })
+    .catch((error) => {
+      console.error("Error al cargar productos:", error);
+      alert("Error al cargar productos");
+    });
+
+  // Inicialmente oculta el botón "Comprar"
+  buyButton.style.display = "none";
+});
+
+function addToCard(index) {
+  let existingItem = listCards.find((item) => item.id === products[index].id);
+
+  if (existingItem) {
+    existingItem.quantity++;
+  } else {
+    let newCartItem = {
+      id: products[index].id,
+      foto: products[index].foto,
+      nombre: products[index].nombre,
+      precio: products[index].precio,
+      quantity: 1,
+    };
+    listCards.push(newCartItem);
   }
+
   reloadCard();
 }
+
 function reloadCard() {
   listCard.innerHTML = "";
   let count = 0;
   let totalPrice = 0;
-  listCards.forEach((value, key) => {
-    totalPrice = totalPrice + value.price;
-    count = count + value.quantity;
-    if (value != null) {
-      let newDiv = document.createElement("li");
-      newDiv.innerHTML = `
-                <div><img src="../assets/img/${value.image}"/></div>
-                <div>${value.name}</div>
-                <div>${value.price.toLocaleString()}</div>
-                <div>
-                    <button onclick="changeQuantity(${key}, ${
-        value.quantity - 1
-      })">-</button>
-                    <div class="count">${value.quantity}</div>
-                    <button onclick="changeQuantity(${key}, ${
-        value.quantity + 1
-      })">+</button>
-                </div>`;
-      listCard.appendChild(newDiv);
-    }
+
+  listCards.forEach((product, index) => {
+    totalPrice += product.precio * product.quantity;
+    count += product.quantity;
+
+    let newDiv = document.createElement("li");
+    newDiv.innerHTML = `
+      <div><img src="${product.foto}"/></div>
+      <div>${product.nombre}</div>
+      <div>${product.precio.toLocaleString()}</div>
+      <div>
+        <button onclick="changeQuantity(${index}, ${product.quantity - 1})">-</button>
+        <div class="count">${product.quantity}</div>
+        <button onclick="changeQuantity(${index}, ${product.quantity + 1})">+</button>
+      </div>`;
+    listCard.appendChild(newDiv);
   });
+
   total.innerText = totalPrice.toLocaleString();
   quantity.innerText = count;
-}
-function changeQuantity(key, quantity) {
-  if (quantity == 0) {
-    delete listCards[key];
+
+  // Mostrar el botón "Comprar" si hay productos en el carrito
+  if (listCards.length > 0) {
+    buyButton.style.display = "block";
   } else {
-    listCards[key].quantity = quantity;
-    listCards[key].price = quantity * products[key].price;
+    buyButton.style.display = "none";
   }
+
+  localStorage.setItem("cart", JSON.stringify(listCards));
+}
+
+function changeQuantity(index, quantity) {
+  if (quantity <= 0) {
+    listCards.splice(index, 1);
+  } else {
+    listCards[index].quantity = quantity;
+  }
+
   reloadCard();
 }
+
+/// Evento click del botón "Comprar"
+buyButton.addEventListener("click", () => {
+  // Construir los datos a enviar al servidor
+  let userId = "1"; // Suponiendo que el id de usuario es estático
+  let productIds = listCards.map((item) => item.id); // Obtener los id de los productos en el carrito
+
+  // Construir el objeto de datos para enviar al servidor
+  let data = {
+    id_usuario: userId,
+  };
+  listCards.forEach((item, index) => {
+    data[`id_producto_${index + 1}`] = item.id;
+  });
+
+  // Rellenar con null para los productos que no existan
+  for (let i = listCards.length + 1; i <= 3; i++) {
+    data[`id_producto_${i}`] = null;
+  }
+  console.log(JSON.stringify(data));
+
+  fetch("http://127.0.0.1:3000/compras", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Error al procesar la compra");
+      }
+      return response.json();
+    })
+    .then((responseData) => {
+      console.log("Respuesta del servidor:", responseData);
+      // Aquí puedes manejar la respuesta del servidor, por ejemplo, redirigir a una página de confirmación o mostrar un mensaje al usuario
+      alert("Compra realizada correctamente");
+      // Limpiar el carrito después de la compra
+      listCards = [];
+      reloadCard();
+    })
+    .catch((error) => {
+      console.error("Error al procesar la compra:", error);
+      alert("Error al procesar la compra. Por favor, inténtalo de nuevo más tarde.");
+    });
+});

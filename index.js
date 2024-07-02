@@ -12,6 +12,8 @@ const productosRouter = require("./src/routes/productosRouter");
 const comprasRouter = require("./src/routes/comprasRouter");
 const path = require("path");
 const cors = require("cors");
+const upload = require("./src/utils/multerConfig");
+
 app.use(cors());
 
 app.use(express.json());
@@ -22,6 +24,13 @@ app.use("/contacto", contactoRouter);
 app.use("/posteos", posteoRouter);
 app.use("/productos", productosRouter);
 app.use("/compras", comprasRouter);
+
+/*
+app.get('/', (req,res) => 
+{
+    res.send('HOLA DESDE EL PUERTO LOCALHOST:3000');
+});
+*/
 
 app.use(express.static(path.join(__dirname, "public")));
 
