@@ -7,7 +7,7 @@
     <title>Compras</title>
     <link rel="stylesheet" href="../css/carrito.css" />
     <link rel="icon" href="../assets/img/inicio.png" type="image/x-icon" />
-    <link rel="stylesheet" href="./css/footer.css" />
+    <link rel="stylesheet" href="../css/footer.css" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -33,31 +33,19 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav ms-auto" id="miLista">
             <li class="nav-item">
-              <a
-                class="nav-link mx-2 active"
-                aria-current="page"
-                href="../index.html"
-                >Inicio</a
-              >
+              <a class="nav-link mx-2 active" aria-current="page" href="../index.html">Inicio</a>
             </li>
             <li class="nav-item">
               <a class="nav-link mx-2" href="../pages/carrito.html">Compras</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link mx-2" href="../pages/contacto.html"
-                >Contacto</a
-              >
+              <a class="nav-link mx-2" href="../pages/contacto.html">Contacto</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link mx-2" href="../pages/login.html"
-                >Iniciar sesión</a
-              >
+              <a class="nav-link mx-2" href="../pages/login.html">Iniciar sesión</a>
             </li>
             <li class="nav-item">
-              <a
-                class="nav-link mx-2"
-                href="../pages/registrarse.html"
-                id="registro"
+              <a class="nav-link mx-2" href="../pages/registrarse.html" id="registro"
                 >Registrarse</a
               >
             </li>
@@ -95,27 +83,77 @@
         </div>
       </div>
     </nav>
+    <main class="hero">
+      <div class="container">
+        <header>
+          <h1>Tu Carrito de Compras</h1>
+          <div class="shopping">
+            <img src="../assets/img/shopping.svg" />
+            <span class="quantity">0</span>
+          </div>
+        </header>
 
-    <div class="container">
-      <header>
-        <h1>Tu Carrito de Compras</h1>
-        <div class="shopping">
-          <img src="../assets/img/shopping.svg" />
-          <span class="quantity">0</span>
-        </div>
-      </header>
-
-      <div class="list"></div>
-    </div>
-    <div class="carta">
-      <h1>Carta</h1>
-      <ul class="listCard"></ul>
-      <button class="buyButton">Comprar</button>
-      <div class="checkOut">
-        <div class="total">0</div>
-        <div class="closeShopping">Close</div>
+        <div class="list"></div>
       </div>
-    </div>
+      <div class="carta">
+        <h1>Carta</h1>
+        <ul class="listCard"></ul>
+        <button class="buyButton">Comprar</button>
+        <div class="checkOut">
+          <div class="total">0</div>
+          <div class="closeShopping">Close</div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="footer-container navbar-dark bg-dark">
+        <div class="footer-content-container">
+          <h3 class="website-logo">La cocina de Juan</h3>
+          <span class="footer-info"
+            ><div class="ratio ratio-21x9">
+              <div>
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d592.2496437573832!2d-68.86213117711286!3d-32.89103120767207!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x967e083896f14777%3A0xcdf7128f52ea71c5!2sEl%20Patio%20de%20Jes%C3%BAs%20Mar%C3%ADa!5e0!3m2!1ses-419!2sar!4v1716554849593!5m2!1ses-419!2sar"
+                  width="250"
+                  height="75"
+                  style="border: 0"
+                  allowfullscreen=""
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                ></iframe>
+              </div></div
+          ></span>
+        </div>
+        <div class="footer-menus">
+          <div class="footer-content-container">
+            <span class="menu-title">menu</span>
+            <a href="#" class="menu-item-footer">Inicio</a>
+            <a href="#" class="menu-item-footer">Cursos</a>
+            <a href="#" class="menu-item-footer">Testimonios</a>
+          </div>
+          <div class="footer-content-container">
+            <span class="menu-title">legal</span>
+            <a href="#" class="menu-item-footer">Políticas privadas</a>
+            <a href="#" class="menu-item-footer">Cookies</a>
+            <a href="#" class="menu-item-footer">Asesoría legal</a>
+          </div>
+        </div>
+        <div class="footer-content-container">
+          <span class="menu-title">Seguinos</span>
+          <div class="social-container">
+            <a href="#" class="social-link"></a>
+            <a href="#" class="social-link"></a>
+            <a href="#" class="social-link"></a>
+          </div>
+        </div>
+      </div>
+      <div class="copyright-container">
+        <span class="copyright"
+          >Copyright 2024, juancocina.com. Todos los derechos reservados.</span
+        >
+      </div>
+    </footer>
 
     <script src="../js/carrito.js"></script>
   </body>

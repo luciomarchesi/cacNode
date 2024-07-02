@@ -2,6 +2,13 @@ body {
   background-color: #e3e7e8;
   font-family: system-ui;
 }
+.hero {
+  width: 100%;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), #9e3c18), url(../assets/img/imgBg.jpg);
+  background-position: center;
+  background-size: cover;
+  padding: 30px;
+}
 .container {
   width: 1000px;
   margin: auto;
