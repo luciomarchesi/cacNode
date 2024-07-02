@@ -25,12 +25,6 @@ app.use("/posteos", posteoRouter);
 app.use("/productos", productosRouter);
 app.use("/compras", comprasRouter);
 
-app.post("/upload", upload.single("archivo"), (req, res) => {
-  // req.file contiene la información del archivo cargado
-  console.log(req.file);
-  res.send("Archivo subido correctamente");
-});
-
 /*
 app.get('/', (req,res) => 
 {
