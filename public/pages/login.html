@@ -14,12 +14,18 @@
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
     />
-    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
   </head>
 
   <body class="d-flex flex-column min-vh-100">
     <header>
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-3" id="my-navbar">
+      <nav
+        class="navbar navbar-expand-lg navbar-dark bg-dark p-3"
+        id="my-navbar"
+      >
         <div class="container-fluid">
           <a class="navbar-brand" href="../index.html">La cocina de Juan</a>
           <button
@@ -36,16 +42,30 @@
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ms-auto">
               <li class="nav-item">
-                <a class="nav-link mx-2" aria-current="page" href="../index.html">Inicio</a>
+                <a
+                  class="nav-link mx-2"
+                  aria-current="page"
+                  href="../index.html"
+                  >Inicio</a
+                >
               </li>
               <li class="nav-item">
-                <a class="nav-link mx-2" href="../pages/contacto.html">Contacto</a>
+                <a class="nav-link mx-2" href="../pages/carrito.html"
+                  >Compras</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link mx-2" href="../pages/contacto.html"
+                  >Contacto</a
+                >
               </li>
               <li class="nav-item">
                 <a class="nav-link mx-2 active" href="#">iniciar sesión</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link mx-2" href="../pages/registrarse.html">Registrarse</a>
+                <a class="nav-link mx-2" href="../pages/registrarse.html"
+                  >Registrarse</a
+                >
               </li>
               <div class="dropdown invisible" id="dropdown">
                 <a
@@ -83,7 +103,9 @@
       </nav>
     </header>
 
-    <main class="hero flex-grow-1 d-flex justify-content-center align-items-center">
+    <main
+      class="hero flex-grow-1 d-flex justify-content-center align-items-center"
+    >
       <div class="wrapper">
         <form action="" id="loginForm">
           <h1>Iniciar sesión</h1>
@@ -92,7 +114,12 @@
             <i class="bx bxs-user user-icon"></i>
           </div>
           <div class="input-box" id="input-pass">
-            <input type="password" placeholder="Contraseña" id="InputPassword" required />
+            <input
+              type="password"
+              placeholder="Contraseña"
+              id="InputPassword"
+              required
+            />
             <i class="bx bxs-lock-alt lock-icon"></i>
           </div>
           <div class="remember-forgot">
@@ -101,7 +128,11 @@
           </div>
           <button type="submit" class="btn">Iniciar sesión</button>
           <div class="register-link">
-            <p>¿No posee cuenta?<a href="../pages/registrarse.html"> Registrarse</a></p>
+            <p>
+              ¿No posee cuenta?<a href="../pages/registrarse.html">
+                Registrarse</a
+              >
+            </p>
           </div>
         </form>
       </div>

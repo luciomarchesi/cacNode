@@ -13,7 +13,10 @@
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
     />
-    <script src="https://kit.fontawesome.com/0dee802544.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/0dee802544.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
 
   <body>
@@ -35,16 +38,30 @@
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ms-auto">
               <li class="nav-item">
-                <a class="nav-link mx-2" aria-current="page" href="../index.html">Inicio</a>
+                <a
+                  class="nav-link mx-2"
+                  aria-current="page"
+                  href="../index.html"
+                  >Inicio</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link mx-2" href="../pages/carrito.html"
+                  >Compras</a
+                >
               </li>
               <li class="nav-item">
                 <a class="nav-link mx-2 active" href="#">Contacto</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link mx-2" href="login.html">iniciar sesión</a>
+                <a class="nav-link mx-2" href="../pages/login.html"
+                  >iniciar sesión</a
+                >
               </li>
               <li class="nav-item">
-                <a class="nav-link mx-2" href="registrarse.html">Registrarse</a>
+                <a class="nav-link mx-2" href="../pages/registrarse.html"
+                  >Registrarse</a
+                >
               </li>
               <div class="dropdown invisible" id="dropdown">
                 <a
@@ -83,16 +100,23 @@
     </header>
 
     <div class="hero">
-      <form id="loginForm" action="http://127.0.0.1:3000/contacto" method="POST">
+      <form
+        id="loginForm"
+        action="http://127.0.0.1:3000/contacto"
+        method="POST"
+      >
         <div class="row">
           <div class="input-group">
             <input type="text" id="inputName" required />
-            <label for="inputName"><i class="fa-solid fa-user"></i> Nombre</label>
+            <label for="inputName"
+              ><i class="fa-solid fa-user"></i> Nombre</label
+            >
           </div>
           <div class="input-group">
             <input type="tel" id="inputNumber" required />
             <label for="inputNumber"
-              ><i class="fa-solid fa-phone-square-alt"></i> Número de teléfono</label
+              ><i class="fa-solid fa-phone-square-alt"></i> Número de
+              teléfono</label
             >
           </div>
         </div>
@@ -110,13 +134,19 @@
         </div>
         <div class="input-group">
           <input type="email" id="inputEmail" required />
-          <label for="inputEmail"><i class="fa-solid fa-envelope"></i> Email</label>
+          <label for="inputEmail"
+            ><i class="fa-solid fa-envelope"></i> Email</label
+          >
         </div>
         <div class="input-group">
           <textarea id="inputMessage" rows="8" required></textarea>
-          <label for="inputMessage"><i class="fa-solid fa-comments"></i> Mensaje</label>
+          <label for="inputMessage"
+            ><i class="fa-solid fa-comments"></i> Mensaje</label
+          >
         </div>
-        <button type="submit">ENVIAR <i class="fa-solid fa-paper-plane"></i></button>
+        <button type="submit">
+          ENVIAR <i class="fa-solid fa-paper-plane"></i>
+        </button>
       </form>
     </div>
 

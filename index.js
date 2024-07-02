@@ -23,13 +23,6 @@ app.use("/posteos", posteoRouter);
 app.use("/productos", productosRouter);
 app.use("/compras", comprasRouter);
 
-/*
-app.get('/', (req,res) => 
-{
-    res.send('HOLA DESDE EL PUERTO LOCALHOST:3000');
-});
-*/
-
 app.use(express.static(path.join(__dirname, "public")));
 
 app.listen(port, () => {
