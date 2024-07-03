@@ -28,7 +28,7 @@ document.getElementById("loginForm").addEventListener("submit", function (event)
     pass: pass,
   };
 
-  fetch("/login", {
+  fetch("https://cac-node.vercel.app/login", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
