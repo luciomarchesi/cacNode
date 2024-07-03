@@ -42,7 +42,7 @@ form.addEventListener("submit", async (e) => {
 
   // Enviar los datos al servidor usando fetch
   try {
-    const response = await fetch("https://cac-node.vercel.app/contacto", {
+    const response = await fetch("/contacto", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
