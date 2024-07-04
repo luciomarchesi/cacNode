@@ -21,7 +21,7 @@ let products = [];
 let listCards = [];
 
 document.addEventListener("DOMContentLoaded", function () {
-  fetch("http://127.0.0.1:3000/productos")
+  fetch("/productos")
     .then((response) => {
       if (!response.ok) {
         throw new Error("Error al obtener los productos");
