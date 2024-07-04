@@ -50,6 +50,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function addToCard(index) {
+  console.log(listCards);
   if (listCards.length >= 4) {
     alert("¡No puedes agregar más de 4 productos al carrito!");
     return;
@@ -133,7 +134,7 @@ buyButton.addEventListener("click", () => {
   }
   console.log(JSON.stringify(data));
 
-  fetch("http://127.0.0.1:3000/compras", {
+  fetch("/compras", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
