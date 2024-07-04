@@ -46,11 +46,14 @@ document.addEventListener("DOMContentLoaded", function () {
       alert("Error al cargar productos");
     });
 
-  // Inicialmente oculta el botón "Comprar"
   buyButton.style.display = "none";
 });
 
 function addToCard(index) {
+  if (listCards.length >= 4) {
+    alert("¡No puedes agregar más de 4 productos al carrito!");
+    return;
+  }
   let existingItem = listCards.find((item) => item.id === products[index].id);
 
   if (existingItem) {
@@ -113,13 +116,10 @@ function changeQuantity(index, quantity) {
 
   reloadCard();
 }
-/// Evento click del botón "Comprar"
-buyButton.addEventListener("click", () => {
-  // Construir los datos a enviar al servidor
-  let userId = userlogueado.userWithoutPassword.id; // Suponiendo que el id de usuario es estático
-  let productIds = listCards.map((item) => item.id); // Obtener los id de los productos en el carrito
 
-  // Construir el objeto de datos para enviar al servidor
+buyButton.addEventListener("click", () => {
+  let userId = userlogueado.userWithoutPassword.id;
+
   let data = {
     id_usuario: userId,
   };
@@ -128,7 +128,7 @@ buyButton.addEventListener("click", () => {
   });
 
   // Rellenar con null para los productos que no existan
-  for (let i = listCards.length + 1; i <= 3; i++) {
+  for (let i = listCards.length + 1; i <= 4; i++) {
     data[`id_producto_${i}`] = null;
   }
   console.log(JSON.stringify(data));
