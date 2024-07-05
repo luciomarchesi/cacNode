@@ -1,0 +1,19 @@
+main {
+  font-family: "Roboto", sans-serif;
+  min-width: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  display: flex;
+  justify-content: center; /* Centrado horizontal */
+  align-items: center; /* Centrado vertical */
+  height: 57vh; /* Opcional: ajusta la altura según tus necesidades */
+}
+.hero {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), #9e3c18), url(../assets/img/imgBg.jpg);
+  background-position: center;
+  background-size: cover;
+  padding: 30px;
+}

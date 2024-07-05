@@ -42,7 +42,7 @@ form.addEventListener("submit", async (e) => {
 
   // Enviar los datos al servidor usando fetch
   try {
-    const response = await fetch("http://127.0.0.1:3000/contacto", {
+    const response = await fetch("/contacto", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

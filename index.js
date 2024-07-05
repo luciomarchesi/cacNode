@@ -1,5 +1,5 @@
 /*--------SERVIDOR ESTATICO CON EXPRESS-------*/
-let port = 3000;
+const port = 3000;
 //requiero el modulo de express y lo guardo en variable express
 const express = require("express");
 //inicializo express

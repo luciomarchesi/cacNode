@@ -16,9 +16,9 @@ if (localStorage.getItem("user")) {
   userNameID.appendChild(userName1);
 
   userCardTitle.textContent = "Bienvenido";
-  userCardCorreo.textContent = `Correo electrónico: ${userlogueado.correo}`;
-  userCardName.textContent = `Nombre: ${userlogueado.nombre}`;
-  userCardCreateAt.textContent = `Creado: ${userlogueado.createAt}`;
-  userCardUpdateAt.textContent = `Actualizado: ${userlogueado.updateAt}`;
-  userCardUserId.textContent = `ID: ${userlogueado.id}`;
+  userCardCorreo.textContent = `Correo electrónico: ${userlogueado.userWithoutPassword.correo}`;
+  userCardName.textContent = `Nombre: ${userlogueado.userWithoutPassword.nombre}`;
+  userCardCreateAt.textContent = `Creado: ${userlogueado.userWithoutPassword.createAt}`;
+  userCardUpdateAt.textContent = `Actualizado: ${userlogueado.userWithoutPassword.updateAt}`;
+  userCardUserId.textContent = `ID: ${userlogueado.userWithoutPassword.id}`;
 }
