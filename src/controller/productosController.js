@@ -24,6 +24,17 @@ const crearProducto = (req, res) => {
 };
 
 const ObtenerTodosLosProductos = (req, res) => {
+  const token = req.cookie.access_token;
+  if (!token) {
+    return res.status(403).send("Acceso no autorizado");
+  }
+
+  try {
+    const data = jwt.verify(token, SECRET_KEY);
+    console.log(data);
+  } catch (error) {
+    res.status(401).send("Acceso no autorizado");
+  }
   const sql = "SELECT * FROM productos";
 
   db.query(sql, (err, result) => {

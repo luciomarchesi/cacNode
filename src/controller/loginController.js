@@ -26,7 +26,9 @@ const ObtenerTodosLosUsuarios = (req, res) => {
         const userWithoutPassword = { ...user };
         delete userWithoutPassword.pass;
         const token = jwt.sign(userWithoutPassword, process.env.SECRET_KEY, { expiresIn: "1h" });
-        res.json({ message: "Usuario logueado", userWithoutPassword, token });
+        res
+          .cookie("access_token", token)
+          .json({ message: "Usuario logueado", userWithoutPassword, token });
       }
     } catch (error) {
       console.error("Error al comparar las contraseñas:", error);

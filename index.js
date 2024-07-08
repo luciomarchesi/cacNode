@@ -2,6 +2,7 @@
 const port = 3000;
 //requiero el modulo de express y lo guardo en variable express
 const express = require("express");
+const cookieParser = require("cookie-parser");
 //inicializo express
 const app = express();
 const usuariosRouter = require("./src/routes/usuariosRoutes");
@@ -17,6 +18,8 @@ const upload = require("./src/utils/multerConfig");
 app.use(cors());
 
 app.use(express.json());
+
+app.use(cookieParser());
 
 app.use("/usuarios", usuariosRouter);
 app.use("/login", loginRouter);
