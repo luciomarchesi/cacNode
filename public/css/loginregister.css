@@ -8,7 +8,8 @@
 .hero {
   width: 100%;
   height: 100vh;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), #9e3c18), url(../assets/img/imgBg.jpg);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), #9e3c18),
+    url(../assets/img/imgBg.jpg);
   background-position: center;
   background-size: cover;
   display: flex;
@@ -67,14 +68,14 @@ body {
 .input-box .user-icon {
   position: absolute;
   right: 62px;
-  top: 197px;
+  top: 123px;
   transform: translateY(-50%);
   font-size: 20px;
 }
 .input-box .lock-icon {
   position: absolute;
   right: 62px;
-  top: 123px;
+  top: 196px;
   transform: translateY(-50%);
   font-size: 20px;
 }
