@@ -1,5 +1,6 @@
 const db = require("../db/db");
 const jwt = require("jsonwebtoken");
+const SECRET_KEY = "***developer_777***";
 const { comparePasswords } = require("../utils/hashPassword");
 
 const ObtenerTodosLosUsuarios = (req, res) => {
@@ -25,6 +26,7 @@ const ObtenerTodosLosUsuarios = (req, res) => {
       } else {
         const userWithoutPassword = { ...user };
         delete userWithoutPassword.pass;
+        console.log(process.env.SECRET_KEY)
         const token = jwt.sign(userWithoutPassword, process.env.SECRET_KEY, { expiresIn: "1h" });
         res
           .cookie("access_token", token)

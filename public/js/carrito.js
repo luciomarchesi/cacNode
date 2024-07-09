@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     })
     .catch((error) => {
-      console.error("Error al cargar productos:", error);
+      console.error("Error al cargar productos:", error.message);
       alert("Error al cargar productos");
     });
 
