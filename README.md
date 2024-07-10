@@ -1,3 +1,9 @@
+[!NOTE]
+Nombre del Proyecto:
+
+> [info]
+> Esta es una alerta informativa.
+
 ```
 Nombre del Proyecto:
 PAGINA DE RECETAS
@@ -18,7 +24,7 @@ Instrucciones sobre cómo instalar y configurar tu proyecto localmente. Por ejem
 
 - ### Inicia la aplicación
 
-  npm start
+  npm run dev
 
 - ### Contribuciones
 
@@ -37,5 +43,8 @@ Instrucciones sobre cómo instalar y configurar tu proyecto localmente. Por ejem
 - ❌ Se debe poder realizar borrado físico de los datos. (DELETE) Pts. 15
 - ❌ El trabajo práctico deberá subirse a un servidor online y compartirse mediante un repositorio de Git. (Mandatorio) Pts. 5
 - ❌ La página deberá subirse a un servidor on-line para poder ser navegada por el Docente. (Mandatorio) Pts. 5
+  https://cac-node.vercel.app/
+  https://backend-mysql-express.vercel.app/
+
 - ❌ Se valorará la aplicación de un token o método de autenticación. Pts. 5
 - ✔️ El backend debe estar integrado con un frontend. Pts. 5
