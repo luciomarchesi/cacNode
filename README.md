@@ -66,11 +66,14 @@ Los tipos de datos utilizados son:
 
 - ❌ De la misma forma se debe poder realizar modificaciones de los registros. (PUT) Pts. 15
 
-> Se puede realizar un **GET** https://cac-node.vercel.app/productos
+  > Se puede realizar un **GET** https://cac-node.vercel.app/productos
 
 - ✔️ Se debe poder acceder a los registros de la tabla (GET) Pts. 15
+
   > Se puede realizar un **GET** https://cac-node.vercel.app/productos
+
 - ❌ Se debe poder realizar borrado físico de los datos. (DELETE) Pts. 15
+
 - ✔️ El trabajo práctico deberá subirse a un servidor online y compartirse mediante un repositorio de Git. (Mandatorio) Pts. 5
 
   - https://github.com/luciomarchesi/cacNode.git
@@ -82,4 +85,9 @@ Los tipos de datos utilizados son:
   - https://backend-mysql-express.vercel.app/
 
 - ✔️ Se valorará la aplicación de un token o método de autenticación. Pts. 5
+
+  > La aplicaion usa JWT.
+
 - ✔️ El backend debe estar integrado con un frontend. Pts. 5
+
+  > En el backend se encuentra la carpeta public con el frontend completo del curso de codo a codo.
