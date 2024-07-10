@@ -1,6 +1,0 @@
-DB_HOST=mysql-developer.alwaysdata.net
-DB_USER=developer_777
-DB_PASSWORD=*developer_777**
-DB_NAME=developer_777
-DB_PORT=3306
-SECRET_KEY=***developer_777***
