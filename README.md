@@ -51,8 +51,19 @@ Los tipos de datos utilizados son:
 
 - ✔️ Entre las tablas al menos deberá haber una relación “uno a muchos”. Pts. 10
   > La relacion uno a muchos se establece en las tablas usuario => usuario_productos => productos
-  > ![Base](/assets/images/DB_Model.png)
+  > ![Base](/public/assets/img/DB_Model.png)
 - ✔️ A través del servidor levantado con Node y Express se debe poder realizar al menos un tipo de alta. (POST) Pts. 15
+
+  > Se puede realizar un **POST** https://cac-node.vercel.app/usuarios
+
+```json
+{
+  "correo": "ejemplo@prueba.com",
+  "pass": "contraseña_segura",
+  "avatar": "No Fncionando"
+}
+```
+
 - ❌ De la misma forma se debe poder realizar modificaciones de los registros. (PUT) Pts. 15
 - ✔️ Se debe poder acceder a los registros de la tabla (GET) Pts. 15
 - ❌ Se debe poder realizar borrado físico de los datos. (DELETE) Pts. 15
