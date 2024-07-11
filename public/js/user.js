@@ -8,7 +8,7 @@ const userCardCreateAt = document.querySelector(".createAt");
 const userCardUpdateAt = document.querySelector(".updateAt");
 const userCardUserId = document.querySelector(".userid");
 
-if (localStorage.getItem("user")) {
+if (userlogueado) {
   userLogedi.classList.remove("invisible");
   userLogedi.classList.add("visible");
   var userName1 = document.createElement("p");
