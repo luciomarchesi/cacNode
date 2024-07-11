@@ -23,7 +23,7 @@ document.getElementById("btnEliminar").addEventListener("click", async () => {
   const userId = userlogueado.userWithoutPassword.id;
 
   try {
-    const response = await fetch(`/usuarios/${userId}`, {
+    const response = await fetch(`usuarios/${userId}`, {
       method: "DELETE",
     });
 
