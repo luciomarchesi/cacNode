@@ -45,6 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const nuevoCorreo = document.getElementById("nuevo_correo").value;
     const nuevaPass = document.getElementById("nuevo_pass").value;
+    const userId = userlogueado.userWithoutPassword.id;
 
     // Configura los datos para la petición PUT
     fetch(`https://backend-mysql-express.vercel.app/usuarios/${userId}`, {
