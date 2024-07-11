@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const userId = userlogueado.userWithoutPassword.id;
 
     try {
-      const response = await fetch(`usuarios/4`, {
+      const response = await fetch(`https://backend-mysql-express.vercel.app/usuarios/${userId}`, {
         method: "DELETE",
       });
 
