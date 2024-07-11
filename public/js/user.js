@@ -31,6 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
         window.location.href = "../index.html";
       } else {
         const errorText = await response.text();
+        console.log(errorText);
         alert(`Error al eliminar el usuario: ${errorText}`);
       }
     } catch (error) {
