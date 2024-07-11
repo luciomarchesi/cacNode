@@ -49,12 +49,13 @@ const crearUsuario = async (req, res) => {
   }
 };
 
-const ActualizarUsuario = (req, res) => {
+const ActualizarUsuario = async (req, res) => {
   const { id } = req.params;
   const { correo, pass } = req.body;
+  const hashedPassword = await hashPassword(pass);
 
-  const sql = "UPDATE usuarios SET correo = ?, pass = ? WHERE id = ?";
-  db.query(sql, [correo, pass, id], (err, result) => {
+  const sql = "UPDATE usuarios SET correo = ?, hashedPassword = ? WHERE id = ?";
+  db.query(sql, [correo, hashedPassword, id], (err, result) => {
     if (err) throw err;
 
     res.json({
