@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
         correo: nuevoCorreo,
         pass: nuevaPass,
       };
-
+      console.log(JSON.stringify(datosUpdate));
       // Configura los datos para la petición PUT
       fetch(`https://backend-mysql-express.vercel.app/usuarios/${userId}`, {
         method: "PUT",
