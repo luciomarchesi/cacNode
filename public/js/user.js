@@ -39,4 +39,32 @@ document.addEventListener("DOMContentLoaded", () => {
       alert("Ocurrió un error al eliminar el usuario");
     }
   });
+
+  document.getElementById("updateForm").addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const nuevoCorreo = document.getElementById("nuevo_correo").value;
+    const nuevaPass = document.getElementById("nuevo_pass").value;
+
+    // Configura los datos para la petición PUT
+    fetch(`https://backend-mysql-express.vercel.app/usuarios/${userId}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        correo: nuevoCorreo,
+        password: nuevaPass,
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Éxito:", data);
+        alert("Datos actualizados exitosamente");
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+        alert("Hubo un error al actualizar los datos");
+      });
+  });
 });

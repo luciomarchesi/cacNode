@@ -51,10 +51,10 @@ const crearUsuario = async (req, res) => {
 
 const ActualizarUsuario = (req, res) => {
   const { id } = req.params;
-  const { nombre, apellido, mail } = req.body;
+  const { correo, pass } = req.body;
 
-  const sql = "UPDATE usuarios SET nombre = ?, apellido = ?, mail = ? WHERE id = ?";
-  db.query(sql, [nombre, apellido, mail, id], (err, result) => {
+  const sql = "UPDATE usuarios SET correo = ?, pass = ? WHERE id = ?";
+  db.query(sql, [correo, pass, id], (err, result) => {
     if (err) throw err;
 
     res.json({
