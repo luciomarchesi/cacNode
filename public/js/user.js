@@ -21,25 +21,22 @@ if (localStorage.getItem("user")) {
 
 document.getElementById("btnEliminar").addEventListener("click", async () => {
   const userId = userlogueado.userWithoutPassword.id;
-  console.log(userId);
-  /*try {
-    const response = await fetch(
-      `http://localhost:3000/api/usuarios/${userId}`,
-      {
-        method: "DELETE",
-      }
-    );
+
+  try {
+    const response = await fetch(`http://localhost:3000/api/usuarios/${userId}`, {
+      method: "DELETE",
+    });
 
     if (response.ok) {
       alert("Usuario eliminado exitosamente");
-      // Opcionalmente, puedes redirigir al usuario o realizar otra acción
+
       localStorage.removeItem("user");
-      window.location.href = "/";
+      window.location.href = "../index.html";
     } else {
       alert("Error al eliminar el usuario");
     }
   } catch (error) {
     console.error("Error al eliminar el usuario:", error);
     alert("Ocurrió un error al eliminar el usuario");
-  }*/
+  }
 });
