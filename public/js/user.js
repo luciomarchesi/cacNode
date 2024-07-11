@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const userId = userlogueado.userWithoutPassword.id;
 
     try {
-      const response = await fetch(`usuarios/${userId}`, {
+      const response = await fetch(`usuarios/4`, {
         method: "DELETE",
       });
 
