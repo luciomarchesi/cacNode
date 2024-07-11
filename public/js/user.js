@@ -47,16 +47,18 @@ document.addEventListener("DOMContentLoaded", () => {
       const nuevoCorreo = document.getElementById("nuevo_correo").value;
       const nuevaPass = document.getElementById("nuevo_pass").value;
 
+      const datosUpdate = {
+        correo: nuevoCorreo,
+        pass: nuevaPass,
+      };
+
       // Configura los datos para la petición PUT
       fetch(`https://backend-mysql-express.vercel.app/usuarios/${userId}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          correo: nuevoCorreo,
-          password: nuevaPass,
-        }),
+        body: JSON.stringify(datosUpdate),
       })
         .then((response) => response.json())
         .then((data) => {
