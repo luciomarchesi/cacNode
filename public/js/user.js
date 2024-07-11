@@ -14,11 +14,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     userCardTitle.textContent = "Bienvenido";
     userCardCorreo.textContent = `Correo electrónico: ${userlogueado.userWithoutPassword.correo}`;
+    var userId = userlogueado.userWithoutPassword.id;
   }
 
   document.getElementById("btnEliminar").addEventListener("click", async () => {
-    const userId = userlogueado.userWithoutPassword.id;
-
     try {
       const response = await fetch(`https://backend-mysql-express.vercel.app/usuarios/${userId}`, {
         method: "DELETE",
@@ -45,7 +44,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const nuevoCorreo = document.getElementById("nuevo_correo").value;
     const nuevaPass = document.getElementById("nuevo_pass").value;
-    const userId = userlogueado.userWithoutPassword.id;
 
     // Configura los datos para la petición PUT
     fetch(`https://backend-mysql-express.vercel.app/usuarios/${userId}`, {
