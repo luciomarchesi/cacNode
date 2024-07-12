@@ -60,19 +60,21 @@ Los tipos de datos utilizados son:
 {
   "correo": "ejemplo@prueba.com",
   "pass": "contraseña_segura",
-  "avatar": "No Fncionando"
+  "avatar": "No Funcionando"
 }
 ```
 
-- ❌ De la misma forma se debe poder realizar modificaciones de los registros. (PUT) Pts. 15
+- ✔️ De la misma forma se debe poder realizar modificaciones de los registros. (PUT) Pts. 15
 
-  > Se puede realizar un **GET** https://cac-node.vercel.app/productos
+  > Se puede realizar un **PUT** de usuario https://cac-node.vercel.app/pages/user.html
 
 - ✔️ Se debe poder acceder a los registros de la tabla (GET) Pts. 15
 
   > Se puede realizar un **GET** https://cac-node.vercel.app/productos
 
-- ❌ Se debe poder realizar borrado físico de los datos. (DELETE) Pts. 15
+- ✔️ Se debe poder realizar borrado físico de los datos. (DELETE) Pts. 15
+
+  > Se puede realizar un **DELETE** de usuario https://cac-node.vercel.app/pages/user.html
 
 - ✔️ El trabajo práctico deberá subirse a un servidor online y compartirse mediante un repositorio de Git. (Mandatorio) Pts. 5
 
